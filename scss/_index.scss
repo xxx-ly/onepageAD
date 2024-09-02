@@ -1,3 +1,97 @@
 body{
-    background: url(../images/body_BG.jpg)no-repeat center center/cover;
+    background: url(../images/body_BG.jpg)repeat-y center center/cover;
+}
+.main_width{
+    max-width: 967px;
+    margin:0 auto;
+}
+
+.banner{
+    width: 100%;
+    height: 693px;
+    background: url(../images/banner_bg.jpg)no-repeat center center/cover;
+    overflow-x: hidden;
+    
+    //.banner__content__cloud
+    &__cloud {
+        @include pos_a(t, 0);
+        width: 100%;
+        height: 100%;
+        background: url(../images/banner_cloud_mid.png)repeat-x;
+        animation: cloud 300s linear infinite;
+        z-index: 5;
+    }
+
+    //.banner__content
+    &__content{
+        @include d_f(flex,center,center);
+        height: 100%;
+        background: url(../images/banner_building.png)no-repeat bottom center/contain;
+        position: relative;
+
+        &::before{
+            @extend %float;
+            content:'';
+            display: block;
+            position: relative;
+            z-index: 10;
+            width: 490px;
+            height: 350px;
+            margin-left: 100px;
+            background: url(../images/banner_title.png)no-repeat center center/cover;
+        }
+
+        .icon_airballoon{
+            @extend %float;
+            display: block;
+            width: 120px;
+            height: 175px;
+            background: url(../images/icon_balloon.svg)no-repeat center center/contain;
+            &.--one{
+                @include pos_a(tr,100px,130px);
+                animation-delay: 0.2s;
+                width: 100px;
+                height: 120px;
+            }
+            &.--two{
+                @include pos_a(bl, 0,130px);
+                animation-delay: 0.5s;
+            }
+            &.--three{
+                @include pos_a(br, 0,150px);
+                animation-delay: 0.8s;
+                width: 150px;
+                height: 200px;
+            }
+        }
+    }
+}
+
+.view{
+    //.view__content
+    &__content{
+        flex-wrap: wrap;
+        li{
+            @include d_f(flex, center, space-between);
+
+            img{
+                @extend %hand;
+                box-shadow: 0 8px 8px #878787;
+                @include hoverHandler{
+                    transform: scale(.9);
+                }
+            }
+        }
+        li + li{margin-top: 50px;}
+    }
+    .sectionTitle{
+        background: url(../images/title_hot.png)no-repeat center center/contain;
+    }
+}
+
+.europe{
+    .sectionTitle {
+            background: url(../images/title_europe.png)no-repeat center center/contain;
+        }
+        
 }
